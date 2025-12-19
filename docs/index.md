@@ -4,14 +4,14 @@ layout: home
 
 hero:
   name: "Lalo"
-  text: "Hellow World"
-  tagline: 万变不离其宗
+  text: "SALAMANCA"
+  tagline: 绝命码农
   image:
-    src: /logo.png
-    alt: Laluo
+    src: /logo.svg
+    alt: Lalo
   actions:
   - theme: brand
-    text: 随便看看
+    text: 进入阿尔伯克基
     link: /aboutme
 
 features:

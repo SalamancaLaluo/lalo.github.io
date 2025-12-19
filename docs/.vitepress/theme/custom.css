@@ -1,45 +1,501 @@
-/* 整体配色改成绿色 */
+/* ═══════════════════════════════════════════════════════════
+   🛎️ SALAMANCA CARTEL EDITION
+   "La Familia Es Todo" - The Family Is Everything
+   ═══════════════════════════════════════════════════════════ */
+
+/* 萨拉曼卡家族配色 */
 :root {
-    --vp-c-green-1: #52b788;
-    --vp-c-green-2: #52b788;
-    --vp-c-green-3: #52b788;
-    --vp-c-green-soft: rgba(16, 185, 129, 0.16);
+    /* 化学绿 - Heisenberg 的蓝色冰毒 */
+    --sal-chem-green: #00e676;
+    --sal-dark-green: #1b5e20;
+
+    /* 冰毒蓝 */
+    --sal-meth-blue: #00bcd4;
+    --sal-ice-blue: #4dd0e1;
+
+    /* 墨西哥风格 - 沙漠 & 危险 */
+    --sal-desert-orange: #ff6f00;
+    --sal-warning-yellow: #ffd600;
+    --sal-blood-red: #d50000;
+    --sal-cartel-gold: #ffc107;
+
+    /* 品牌色 */
+    --vp-c-brand-1: #00e676;
+    --vp-c-brand-2: #00c853;
+    --vp-c-brand-3: #1b5e20;
+    --vp-c-brand-soft: rgba(0, 230, 118, 0.16);
 }
-/* 整体配色改成绿色（暗黑模式） */
+
+/* ═══════════════════════════════════════════════════════════
+   暗黑模式 - 阿尔伯克基的夜晚
+   ═══════════════════════════════════════════════════════════ */
 .dark {
-    --vp-c-green-1: #52b788;
-    --vp-c-green-2: #52b788;
-    --vp-c-green-3: #52b788;
-    --vp-c-green-soft: rgba(16, 185, 129, 0.16);
+    --vp-c-brand-1: #00e676;
+    --vp-c-brand-2: #00c853;
+    --vp-c-brand-3: #69f0ae;
+    --vp-c-brand-soft: rgba(0, 230, 118, 0.2);
+
+    /* 深邃的沙漠夜空 */
+    --vp-c-bg: #0a0a0a;
+    --vp-c-bg-soft: #141414;
+    --vp-c-bg-mute: #1f1f1f;
+    --vp-c-bg-alt: #0a0a0a;
+
+    --vp-c-text-1: #e8e8e8;
+    --vp-c-text-2: #a0a0a0;
 }
-/* 整体配色改成绿色 */
+
+/* Hero 区域 */
 :root {
-    --vp-c-brand-1: var(--vp-c-green-1);
-    --vp-c-brand-2: var(--vp-c-green-2);
-    --vp-c-brand-3: var(--vp-c-green-3);
-    --vp-c-brand-soft: var(--vp-c-green-soft);
-}
-:root {
-    /* 设置主题字体颜色 */
     --vp-home-hero-name-color: transparent;
-    --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #bd34fe, #41d1ff);
+    --vp-home-hero-name-background: linear-gradient(
+        135deg,
+        #00e676 0%,
+        #00bcd4 50%,
+        #ffd600 100%
+    );
 
-    /* 设置右图像渐变 */
-    --vp-home-hero-image-background-image: linear-gradient( -45deg, #6a00f4 30%, #ffffff 70% );
-    --vp-home-hero-image-filter: blur(130px);
+    --vp-home-hero-image-background-image: linear-gradient(
+        -45deg,
+        #00e676 0%,
+        #00bcd4 30%,
+        #1b5e20 70%,
+        #0a0a0a 100%
+    );
+    --vp-home-hero-image-filter: blur(100px) saturate(2);
 }
 
-/* 引用块配色 */
-.vp-doc blockquote {
-    background-color: #ecf8f3;
-    border-left: solid #42b983 !important;;
+/* ═══════════════════════════════════════════════════════════
+   动画效果
+   ═══════════════════════════════════════════════════════════ */
+
+@keyframes glow-pulse {
+    0%, 100% {
+        box-shadow: 0 0 5px var(--sal-chem-green), 0 0 10px var(--sal-chem-green);
+    }
+    50% {
+        box-shadow: 0 0 20px var(--sal-chem-green), 0 0 40px var(--sal-meth-blue);
+    }
 }
-/* 引用块配色（暗黑模式） */
+
+@keyframes scan-line {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100vh); }
+}
+
+@keyframes flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+    75% { opacity: 0.9; }
+}
+
+/* Hero 名称效果 */
+.VPHero .name {
+    animation: flicker 3s infinite;
+    font-family: 'Courier New', monospace !important;
+    letter-spacing: 4px;
+}
+
+.dark .VPHero .tagline {
+    color: var(--sal-ice-blue);
+    text-shadow: 0 0 20px rgba(0, 188, 212, 0.6);
+    font-style: italic;
+}
+
+.dark .VPHero .text {
+    color: var(--sal-warning-yellow);
+    text-shadow: 0 0 10px rgba(255, 214, 0, 0.3);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   按钮 - Cartel Style
+   ═══════════════════════════════════════════════════════════ */
+
+.dark .VPButton.brand {
+    background: linear-gradient(135deg, #1b5e20 0%, #00c853 50%, #00bcd4 100%);
+    border: 2px solid var(--sal-chem-green);
+    box-shadow: 0 0 15px rgba(0, 230, 118, 0.4);
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.dark .VPButton.brand::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.dark .VPButton.brand:hover::before {
+    left: 100%;
+}
+
+.dark .VPButton.brand:hover {
+    box-shadow:
+        0 0 30px rgba(0, 230, 118, 0.6),
+        0 0 60px rgba(0, 188, 212, 0.4);
+    transform: scale(1.05);
+    border-color: var(--sal-ice-blue);
+}
+
+.dark .VPButton.alt {
+    background: transparent;
+    border: 2px solid var(--sal-warning-yellow);
+    color: var(--sal-warning-yellow);
+}
+
+.dark .VPButton.alt:hover {
+    background: rgba(255, 214, 0, 0.1);
+    box-shadow: 0 0 20px rgba(255, 214, 0, 0.3);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Feature 卡片 - 实验室设备风格
+   ═══════════════════════════════════════════════════════════ */
+
+.dark .VPFeature {
+    background: linear-gradient(
+        180deg,
+        rgba(0, 230, 118, 0.03) 0%,
+        rgba(0, 0, 0, 0.5) 100%
+    );
+    border: 1px solid rgba(0, 230, 118, 0.2);
+    border-radius: 4px;
+    position: relative;
+    transition: all 0.4s ease;
+    overflow: hidden;
+}
+
+/* 扫描线效果 */
+.dark .VPFeature::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--sal-chem-green), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.dark .VPFeature:hover::after {
+    opacity: 1;
+    animation: scan-line 1.5s linear infinite;
+}
+
+.dark .VPFeature:hover {
+    border-color: var(--sal-chem-green);
+    box-shadow:
+        0 0 20px rgba(0, 230, 118, 0.2),
+        inset 0 0 30px rgba(0, 230, 118, 0.05);
+    transform: translateY(-5px);
+}
+
+.dark .VPFeature .title {
+    color: var(--sal-chem-green);
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.dark .VPFeature .details {
+    color: #888;
+}
+
+.dark .VPFeature .link-text {
+    color: var(--sal-meth-blue);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   导航栏
+   ═══════════════════════════════════════════════════════════ */
+
+.dark .VPNav {
+    background: rgba(10, 10, 10, 0.95) !important;
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0, 230, 118, 0.15);
+}
+
+.dark .VPNavBarTitle .title {
+    color: var(--sal-chem-green);
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(0, 230, 118, 0.5);
+}
+
+.dark .VPNavBarMenuLink {
+    transition: all 0.3s ease;
+}
+
+.dark .VPNavBarMenuLink:hover {
+    color: var(--sal-chem-green);
+    text-shadow: 0 0 10px rgba(0, 230, 118, 0.5);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   侧边栏
+   ═══════════════════════════════════════════════════════════ */
+
+.dark .VPSidebar {
+    background: rgba(10, 10, 10, 0.98) !important;
+    border-right: 1px solid rgba(0, 230, 118, 0.1);
+}
+
+.dark .VPSidebarItem.is-active > .item .link > .text {
+    color: var(--sal-chem-green);
+    text-shadow: 0 0 8px rgba(0, 230, 118, 0.6);
+}
+
+.dark .VPSidebarItem .link:hover .text {
+    color: var(--sal-ice-blue);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   文档内容
+   ═══════════════════════════════════════════════════════════ */
+
+/* 标题 */
+.dark .vp-doc h1,
+.dark .vp-doc h2,
+.dark .vp-doc h3 {
+    color: var(--sal-chem-green);
+    font-family: 'Courier New', monospace;
+}
+
+.dark .vp-doc h1 {
+    text-shadow: 0 0 30px rgba(0, 230, 118, 0.3);
+}
+
+/* 引用块 */
 .dark .vp-doc blockquote {
-    background-color: #4a5f53;
-    border-left: solid #b9eed6 !important;;
+    background: linear-gradient(
+        90deg,
+        rgba(0, 230, 118, 0.05) 0%,
+        rgba(0, 0, 0, 0.3) 100%
+    );
+    border-left: 4px solid var(--sal-chem-green) !important;
+    border-radius: 0 8px 8px 0;
+    font-family: 'Courier New', monospace;
+    position: relative;
 }
-/* 引用块配色（暗黑模式字体） */
+
+.dark .vp-doc blockquote::before {
+    content: '"';
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    font-size: 3rem;
+    color: rgba(0, 230, 118, 0.2);
+    font-family: Georgia, serif;
+}
+
 .dark .vp-doc blockquote > p {
-    color: #92cab2;
+    color: #888;
+}
+
+/* 代码块 */
+.dark .vp-doc div[class*='language-'] {
+    background: #050505 !important;
+    border: 1px solid rgba(0, 230, 118, 0.2);
+    box-shadow:
+        0 0 20px rgba(0, 0, 0, 0.5),
+        inset 0 0 50px rgba(0, 0, 0, 0.8);
+    position: relative;
+}
+
+.dark .vp-doc div[class*='language-']::before {
+    color: var(--sal-chem-green) !important;
+    text-shadow: 0 0 5px rgba(0, 230, 118, 0.5);
+}
+
+/* 行内代码 */
+.dark .vp-doc :not(pre) > code {
+    background: rgba(0, 230, 118, 0.1);
+    color: var(--sal-ice-blue);
+    border: 1px solid rgba(0, 230, 118, 0.2);
+}
+
+/* 链接 */
+.dark .vp-doc a {
+    color: var(--sal-meth-blue);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-bottom: 1px dashed rgba(0, 188, 212, 0.3);
+}
+
+.dark .vp-doc a:hover {
+    color: var(--sal-chem-green);
+    text-shadow: 0 0 10px rgba(0, 230, 118, 0.5);
+    border-bottom-color: var(--sal-chem-green);
+}
+
+/* 表格 */
+.dark .vp-doc table {
+    border: 1px solid rgba(0, 230, 118, 0.2);
+}
+
+.dark .vp-doc th {
+    background: rgba(0, 230, 118, 0.1);
+    color: var(--sal-chem-green);
+    font-family: 'Courier New', monospace;
+    text-transform: uppercase;
+}
+
+.dark .vp-doc td {
+    border-color: rgba(0, 230, 118, 0.1);
+}
+
+.dark .vp-doc tr:hover {
+    background: rgba(0, 230, 118, 0.03);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   滚动条
+   ═══════════════════════════════════════════════════════════ */
+
+.dark ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+.dark ::-webkit-scrollbar-track {
+    background: #0a0a0a;
+    border-left: 1px solid rgba(0, 230, 118, 0.1);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #1b5e20, #00c853, #00bcd4);
+    border-radius: 5px;
+    border: 2px solid #0a0a0a;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #00c853, #00e676, #4dd0e1);
+}
+
+/* 选中文本 */
+.dark ::selection {
+    background: rgba(0, 230, 118, 0.3);
+    color: #fff;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   页脚
+   ═══════════════════════════════════════════════════════════ */
+
+.dark .VPFooter {
+    background: rgba(10, 10, 10, 0.95);
+    border-top: 1px solid rgba(0, 230, 118, 0.1);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   浅色模式 - 沙漠日光
+   ═══════════════════════════════════════════════════════════ */
+
+:root:not(.dark) {
+    --vp-c-bg: #fafafa;
+    --vp-c-bg-soft: #f0f0f0;
+}
+
+:root:not(.dark) .VPButton.brand {
+    background: linear-gradient(135deg, #1b5e20, #00c853);
+    border: 2px solid #00c853;
+}
+
+:root:not(.dark) .VPFeature {
+    border: 1px solid rgba(27, 94, 32, 0.2);
+    transition: all 0.3s ease;
+}
+
+:root:not(.dark) .VPFeature:hover {
+    border-color: #00c853;
+    box-shadow: 0 0 20px rgba(0, 200, 83, 0.2);
+    transform: translateY(-3px);
+}
+
+:root:not(.dark) .VPFeature .title {
+    color: #1b5e20;
+}
+
+:root:not(.dark) .vp-doc blockquote {
+    background: rgba(0, 200, 83, 0.05);
+    border-left: 4px solid #00c853 !important;
+}
+
+:root:not(.dark) .vp-doc a {
+    color: #00838f;
+}
+
+:root:not(.dark) .vp-doc a:hover {
+    color: #00c853;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   🛎️ 特殊效果类
+   ═══════════════════════════════════════════════════════════ */
+
+/* 危险区域效果 */
+.danger-zone {
+    background: repeating-linear-gradient(
+        45deg,
+        var(--sal-warning-yellow),
+        var(--sal-warning-yellow) 10px,
+        #1a1a1a 10px,
+        #1a1a1a 20px
+    );
+    padding: 4px;
+    animation: hazard-scroll 1s linear infinite;
+}
+
+@keyframes hazard-scroll {
+    from { background-position: 0 0; }
+    to { background-position: 28px 0; }
+}
+
+/* 毒性标签 */
+.toxic {
+    display: inline-block;
+    background: var(--sal-blood-red);
+    color: white;
+    padding: 2px 8px;
+    border-radius: 2px;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    animation: glow-pulse 2s infinite;
+}
+
+/* 化学元素样式 */
+.element {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px 12px;
+    border: 2px solid var(--sal-chem-green);
+    border-radius: 4px;
+    background: rgba(0, 230, 118, 0.05);
+    font-family: 'Courier New', monospace;
+}
+
+.element .symbol {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--sal-chem-green);
+}
+
+.element .name {
+    font-size: 0.7rem;
+    color: #888;
 }

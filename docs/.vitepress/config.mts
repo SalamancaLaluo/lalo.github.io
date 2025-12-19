@@ -19,8 +19,12 @@ export default defineConfig({
   },
   // head设置
   head: [
-    // 浏览器中图标
-    ["link", {rel: "icon", href: "/logo.ico"}]
+    // 浏览器中图标 (SVG favicon)
+    ["link", {rel: "icon", href: "/lalo.github.io/favicon.svg", type: "image/svg+xml"}],
+    // 备用 PNG favicon
+    ["link", {rel: "alternate icon", href: "/lalo.github.io/favicon.png", type: "image/png"}],
+    // Apple Touch Icon
+    ["link", {rel: "apple-touch-icon", href: "/lalo.github.io/logo.svg"}],
     // 添加百度统计代码
     //['script', {},
     //`
@@ -28,7 +32,7 @@ export default defineConfig({
     //  (function() {
     //    var hm = document.createElement("script");
     //    hm.src = "https://hm.baidu.com/hm.js?自己申请";
-    //    var s = document.getElementsByTagName("script")[0]; 
+    //    var s = document.getElementsByTagName("script")[0];
     //    s.parentNode.insertBefore(hm, s);
     //  })();
     //`
@@ -37,7 +41,7 @@ export default defineConfig({
   // 主题设置
   themeConfig: {
     // 左上角logo
-    logo: '/logo.png',
+    logo: '/logo.svg',
     // 首页右上角导航栏
     nav: [
       { text: 'Home', link: '/' },
@@ -46,9 +50,16 @@ export default defineConfig({
     // 文章左侧导航栏
     sidebar: [
       {
-        text: '博客',
+        text: '👤 关于',
         items: [
           { text: 'About Me', link: '/aboutme' }
+        ]
+      },
+      {
+        text: '📝 文章',
+        collapsed: false,
+        items: [
+          { text: '我的第一篇博客', link: '/posts/first-post' }
         ]
       }
     ],
@@ -70,7 +81,7 @@ export default defineConfig({
     },
     // 右上角Github链接
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/Goalonez/goalonez.github.io' }
+      { icon: 'github', link: 'https://github.com/SalamancaLaluo/lalo.github.io/' }
     ],
     // 页脚
     footer: {
