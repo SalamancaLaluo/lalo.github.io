@@ -1,5 +1,7 @@
 import { defineConfig } from 'vitepress'
 
+const base = '/lalo.github.io/'
+
 export default defineConfig({
   // 标题（浏览器后缀）
   title: "Lalo",
@@ -8,7 +10,7 @@ export default defineConfig({
   // 语言
   lang: 'zh-CN',
   // 根目录，如果需要部署成htpps://github.com/blog/的形式，则设置/blog/
-  base: '/lalo.github.io/',
+  base,
   // 文档最后更新时间展示
   lastUpdated: true,
   // 去除浏览器链接中的.html后缀
@@ -19,12 +21,9 @@ export default defineConfig({
   },
   // head设置
   head: [
-    // 浏览器中图标 (SVG favicon)
-    ["link", {rel: "icon", href: "/lalo.github.io/favicon.svg", type: "image/svg+xml"}],
-    // 备用 PNG favicon
-    ["link", {rel: "alternate icon", href: "/lalo.github.io/favicon.png", type: "image/png"}],
-    // Apple Touch Icon
-    ["link", {rel: "apple-touch-icon", href: "/lalo.github.io/logo.svg"}],
+    // 浏览器/系统中使用新的黑白logo
+    ["link", { rel: "icon", href: `${base}logo.png`, type: "image/png" }],
+    ["link", { rel: "apple-touch-icon", href: `${base}logo.png` }],
     // 添加百度统计代码
     //['script', {},
     //`
@@ -41,7 +40,10 @@ export default defineConfig({
   // 主题设置
   themeConfig: {
     // 左上角logo
-    logo: '/logo.svg',
+    logo: {
+      light: '/logo-light.svg',
+      dark: '/logo-dark.svg',
+    },
     // 首页右上角导航栏
     nav: [
       { text: 'Home', link: '/' },

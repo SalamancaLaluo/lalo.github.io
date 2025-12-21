@@ -1,28 +1,32 @@
 ---
-# https://vitepress.dev/reference/default-theme-home-page
 layout: home
 
 hero:
   name: "Lalo"
-  text: "SALAMANCA"
-  tagline: 绝命码农
+  text: "Developer"
+  tagline: Write code, build things.
   image:
-    src: /logo.svg
-    alt: Lalo
+    light: /logo-hero-light.svg
+    dark: /logo-hero-dark.svg
+    alt: Minimal Lalo logo
   actions:
-  - theme: brand
-    text: 进入阿尔伯克基
-    link: /aboutme
+    - theme: brand
+      text: About
+      link: /aboutme
+    - theme: alt
+      text: GitHub
+      link: https://github.com/SalamancaLaluo
 
 features:
   - title: Telegram
-    details: 即刻与我联系
+    details: "@lalo_bak"
     link: https://t.me/lalo_bak
   - title: Email
-    details: 不妨给我发封电子邮件
+    details: salamanca.laluo@gmail.com
     link: mailto:salamanca.laluo@gmail.com
   - title: Twitter
-    details: 欢迎在Twitter上关注我
+    details: "@lalo_bak"
     link: https://twitter.com/lalo_bak
 ---
+
 
