@@ -26,17 +26,23 @@ npm run docs:preview
 
 - **docs/**: Main content directory containing all markdown pages
 - **docs/.vitepress/config.mts**: VitePress configuration (TypeScript) - site settings, navigation, sidebar, theme options
-- **docs/.vitepress/theme/**: Custom theme extending VitePress default theme with green color scheme
-- **docs/public/**: Static assets (logo, images)
+- **docs/.vitepress/theme/**: Theme directory using VitePress default theme
+- **docs/public/**: Static assets (logo, images, favicons)
+- **docs/posts/**: Blog posts directory
 
 ## Deployment
 
-GitHub Actions workflow (`.github/workflows/deploy.yml`) automatically builds and deploys to GitHub Pages on push to main branch. Build output goes to `docs/.vitepress/dist`.
+GitHub Actions workflow (`.github/workflows/deploy.yml`) automatically builds and deploys to GitHub Pages on push to main branch:
+- Uses Node.js 20
+- Runs `npm ci` for clean install
+- Builds with `npm run docs:build`
+- Deploys `docs/.vitepress/dist` to GitHub Pages
 
 ## Key Configuration Notes
 
-- Base path is `/lalo.github.io/` (required for GitHub Pages subdirectory)
+- Base path is `/lalo.github.io/` (required for GitHub Pages subdirectory deployment)
 - Language is Chinese (zh-CN)
 - Clean URLs enabled (no .html extensions)
 - Markdown line numbers enabled
 - Local search enabled
+- All asset paths (favicon, logo) must include the `/lalo.github.io/` base path prefix
