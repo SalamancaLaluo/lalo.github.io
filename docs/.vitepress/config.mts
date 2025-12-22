@@ -21,9 +21,9 @@ export default defineConfig({
   },
   // head设置
   head: [
-    // 浏览器/系统中使用新的黑白logo
-    ["link", { rel: "icon", href: `${base}logo.png`, type: "image/png" }],
-    ["link", { rel: "apple-touch-icon", href: `${base}logo.png` }],
+    // 浏览器标签栏favicon（使用SVG，与导航栏logo统一）
+    ["link", { rel: "icon", href: `${base}logo-light.svg`, type: "image/svg+xml" }],
+    ["link", { rel: "apple-touch-icon", href: `${base}logo-light.svg` }],
     // 添加百度统计代码
     //['script', {},
     //`
@@ -44,6 +44,8 @@ export default defineConfig({
       light: '/logo-light.svg',
       dark: '/logo-dark.svg',
     },
+    // 隐藏站点标题文字，只显示logo
+    siteTitle: false,
     // 首页右上角导航栏
     nav: [
       { text: 'Home', link: '/' },

@@ -6,9 +6,9 @@ hero:
   text: "Developer"
   tagline: Write code, build things.
   image:
-    light: /logo-hero-light.svg
-    dark: /logo-hero-dark.svg
-    alt: Minimal Lalo logo
+    light: /logo-light.svg
+    dark: /logo-dark.svg
+    alt: Lalo
   actions:
     - theme: brand
       text: About
